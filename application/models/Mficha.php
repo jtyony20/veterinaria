@@ -8,9 +8,9 @@ class Mficha extends CI_Model
 
 
   var $table = 'fichaclinica';
-    var $column_order = array('fecha','sintomas_signos','tratamiento','id_paciente',null); //set column field database for datatable orderable
-    var $column_search = array('fecha','sintomas_signos','tratamiento','id_paciente'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $order = array('id' => 'desc'); // default order 
+    var $column_order = array('fecha','sintomas_signos','tratamiento','diagnostico','tratamiento','citas',null);
+    var $column_search = array('fecha','sintomas_signos','tratamiento','id_paciente'); 
+    var $order = array('id' => 'desc'); 
 
     public function __construct()
     {
@@ -32,7 +32,7 @@ class Mficha extends CI_Model
                 
                 if($i===0) // first loop
                 {
-                    $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+                    $this->db->group_start();   
                     $this->db->like($item, $_POST['search']['value']);
                 }
                 else

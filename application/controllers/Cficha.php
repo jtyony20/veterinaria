@@ -15,7 +15,7 @@ class Cficha extends CI_Controller
 	public function index(){
         $this->load->view('layout/header');
         $this->load->view('layout/menu');
-        $this->load->view('ficha/vficha_list');
+        $this->load->view('ficha/vlist_all');
         $this->load->view('layout/footer'); 
 	}
  public function ajax_list()
@@ -49,8 +49,8 @@ class Cficha extends CI_Controller
  
         $output = array(
                         "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->mfichas->count_all(),
-                        "recordsFiltered" => $this->mfichas->count_filtered(),
+                        "recordsTotal" => $this->mficha->count_all(),
+                        "recordsFiltered" => $this->mficha->count_filtered(),
                         "data" => $data,
                 );
         //output to json format
@@ -59,25 +59,25 @@ class Cficha extends CI_Controller
  
     public function ajax_edit($id)
     {
-        $data = $this->mfichas->get_by_id($id);
+        $data = $this->mficha->get_by_id($id);
         echo json_encode($data);
     }
  
     public function ajax_add()
     {
-        
         $this->_validate();
-        $pass=sha1($this->input->post('txtpassword'));
         $data = array(
-                'nombre' => $this->input->post('txtnombre'),
-                'appaterno' => $this->input->post('txtappaterno'),
-                'apmaterno' => $this->input->post('txtapmaterno'),
-                'dni' => $this->input->post('txtdni'),
-                'celular' => $this->input->post('txtcelular'),
-                'email' => $this->input->post('txtemail'),
-                'password' => $pass,
+                'fecha' => $this->input->post('txtfecha'),
+                'sintomas_signos' => $this->input->post('txtsintomas_signos'),
+                'peso' => $this->input->post('txtpeso'),
+                'temperatura' => $this->input->post('txttemperatura'),
+                'vacunas' => $this->input->post('txtvacunas'),
+                'diagnostico' => $this->input->post('txtdiagnostico'),
+                'tratamiento' => $this->input->post('txttratamientos'),
+                'citas' => $this->input->post('txtcitas'),
+                'id_paciente' => $this->input->post('txtpaciente'),
             );
-        $insert = $this->mfichas->save($data);
+        $insert = $this->mficha->save($data);
         echo json_encode(array("status" => TRUE));
     }
  
@@ -86,21 +86,23 @@ class Cficha extends CI_Controller
         $this->_validate();
         $id_ficha=$this->input->post('id');
         $data = array(
-                'nombre' => $this->input->post('txtnombre'),
-                'appaterno' => $this->input->post('txtappaterno'),
-                'apmaterno' => $this->input->post('txtapmaterno'),
-                'dni' => $this->input->post('txtdni'),
-                'celular' => $this->input->post('txtcelular'),
-                'email' => $this->input->post('txtemail'),
-                'password' =>sha1($this->input->post('txtpassword')),
+                'fecha' => $this->input->post('txtfecha'),
+                'sintomas_signos' => $this->input->post('txtsintomas_signos'),
+                'peso' => $this->input->post('txtpeso'),
+                'temperatura' => $this->input->post('txttemperatura'),
+                'vacunas' => $this->input->post('txtvacunas'),
+                'diagnostico' => $this->input->post('txtdiagnostico'),
+                'tratamiento' => $this->input->post('txttratamientos'),
+                'citas' => $this->input->post('txtcitas'),
+                'id_paciente' => $this->input->post('txtpaciente'),
             );
-        $this->mfichas->update(array('id' => $this->input->post('id')), $data);
+        $this->mficha->update(array('id' => $this->input->post('id')), $data);
         echo json_encode(array("status" => TRUE));
     }
  
     public function ajax_delete($id)
     {
-        $this->mfichas->delete_by_id($id);
+        $this->mficha->delete_by_id($id);
         echo json_encode(array("status" => TRUE));
     }
  
@@ -112,50 +114,24 @@ class Cficha extends CI_Controller
         $data['inputerror'] = array();
         $data['status'] = TRUE;
  
-        if($this->input->post('txtnombre') == '')
+        if($this->input->post('txtfecha') == '')
         {
-            $data['inputerror'][] = 'txtnombre';
-            $data['error_string'][] = 'El nombre es obligatorio';
+            $data['inputerror'][] = 'txtfecha';
+            $data['error_string'][] = 'La fecha es obligatorio';
             $data['status'] = FALSE;
         }
  
-        if($this->input->post('txtappaterno') == '')
+        if($this->input->post('txtsintomas_signos') == '')
         {
-            $data['inputerror'][] = 'txtappaterno';
-            $data['error_string'][] = 'El Apellido Paterno es obligatorio';
+            $data['inputerror'][] = 'txtsintomas_signos';
+            $data['error_string'][] = 'Los sintomas o signos son obligatorio';
             $data['status'] = FALSE;
         }
  
-        if($this->input->post('txtapmaterno') == '')
+        if($this->input->post('txtpaciente') == '')
         {
-            $data['inputerror'][] = 'txtapmaterno';
-            $data['error_string'][] = 'El Apellido Materno es obligatorio';
-            $data['status'] = FALSE;
-        }
- 
-        if($this->input->post('txtdni') == '')
-        {
-            $data['inputerror'][] = 'txtdni';
-            $data['error_string'][] = 'El dni es obligatorio';
-            $data['status'] = FALSE;
-        }
- 
-        if($this->input->post('txtcelular') == '')
-        {
-            $data['inputerror'][] = 'txtcelular';
-            $data['error_string'][] = 'El celular es obligatorio';
-            $data['status'] = FALSE;
-        }
-        if($this->input->post('txtemail') == '')
-        {
-            $data['inputerror'][] = 'txtemail';
-            $data['error_string'][] = 'El email es obligatorio';
-            $data['status'] = FALSE;
-        }
-        if($this->input->post('txtpassword') == '')
-        {
-            $data['inputerror'][] = 'txtpassword';
-            $data['error_string'][] = 'El password es obligatorio';
+            $data['inputerror'][] = 'txtpaciente';
+            $data['error_string'][] = 'El paciente es obligatorio';
             $data['status'] = FALSE;
         }
  

@@ -76,20 +76,22 @@ function edit_person(id)
  
     //Ajax Load data from ajax
     $.ajax({
-        url :baseurl+'cusuarios/ajax_edit/' + id,
+        url :baseurl+'cficha/ajax_edit/' + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
  
             $('[name="id"]').val(data.id);
-            $('[name="txtnombre"]').val(data.nombre);
-            $('[name="txtappaterno"]').val(data.appaterno);
-            $('[name="txtapmaterno"]').val(data.apmaterno);
-            $('[name="txtdni"]').val(data.dni);
-            $('[name="txtcelular"]').val(data.celular);
-            $('[name="txtemail"]').val(data.email);
-            $('[name="txtpassword"]').val(data.password);
+            $('[name="txtfecha"]').val(data.fecha);
+            $('[name="txtsintomas_signos"]').val(data.sintomas_signos);
+            $('[name="txtpeso"]').val(data.peso);
+            $('[name="txttemperatura"]').val(data.temperatura);
+            $('[name="txtvacunas"]').val(data.vacunas);
+            $('[name="txtdiagnostico"]').val(data.diagnostico);
+            $('[name="txttratamientos"]').val(data.tratamiento);
+            $('[name="txtcitas"]').val(data.citas);
+            $('[name="txtpaciente"]').val(data.id_paciente);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Editar Usuario'); // Set title to Bootstrap modal title
  
@@ -113,9 +115,9 @@ function save()
     var url;
  
     if(save_method == 'add') {
-        url = baseurl+"cusuarios/ajax_add";
+        url = baseurl+"cficha/ajax_add";
     } else {
-        url = baseurl+"cusuarios/ajax_update";
+        url = baseurl+"cficha/ajax_update";
     }
  
     // ajax adding data to database
@@ -161,7 +163,7 @@ function delete_person(id)
 $('#mbtnDeleteUsuario').click(function() {
 
      $.ajax({
-            url : baseurl+'cusuarios/ajax_delete/'+id,
+            url : baseurl+'cficha/ajax_delete/'+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -241,44 +243,9 @@ $('#mbtnInsertFicha').click(function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //:::::::::::::::::::::ACTUALIZAR FICHA::::::::::::::::::::::::::
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-
 
 
 selecFichaUpdate = function(id_ficha,fecha,sintomas_signos,peso,temperatura,vacunas,diagnostico,tratamiento,citas,id_paciente){

@@ -35,7 +35,7 @@
                     <a href="<?php echo base_url(); ?>cpacientes"><i class="fa fa-user-md"></i> <span class="nav-label">Pacientes</span> <span></span></a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>chistorial"><i class="fa fa-user"></i> <span class="nav-label">Historial</span> <span ></span></a>
+                    <a href="<?php echo base_url(); ?>cficha"><i class="fa fa-user"></i> <span class="nav-label">Historial</span> <span ></span></a>
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>cusuarios"><i class="fa fa-user"></i> <span class="nav-label">Usuarios</span> <span ></span></a>

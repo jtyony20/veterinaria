@@ -10,23 +10,24 @@
                     <div class="box-body">
 
 
-
- 
-        <h3>Datos de los usuarios</h3>
+        <h3>Lista de atención</h3>
         <br />
-        <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nuevo Usario</button>
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recargar</button>
+        <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nueva Ficha Clinica</button>
+      
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>ApPaterno</th>
-                    <th>ApMaterno</th>
-                    <th>Dni</th>
-                    <th>Celular</th>
-                    <th>Email</th>
+                    <th>Fecha</th>
+                    <th>Sintomas</th>
+                    <th>Peso</th>
+                    <th>Temperatura</th>
+                    <th>Vacunas</th>
+                    <th>Diagnostico</th>
+                    <th>Tratamiento</th>
+                    <th>Citas</th>
+                    <th>Paciente</th>
                     <th style="width:125px;">Acción</th>
                 </tr>
             </thead>
@@ -35,12 +36,15 @@
  
             <tfoot>
             	<tr>
-              		<th>Nombre</th>
-               	 	<th>ApPaterno</th>
-               		<th>ApMaterno</th>
-               		<th>Dni</th>
-               		<th>Celular</th>
-               		<th>Email</th>
+              		<th>Fecha</th>
+                    <th>Sintomas</th>
+                    <th>Peso</th>
+                    <th>Temperatura</th>
+                    <th>Vacunas</th>
+                    <th>Diagnostico</th>
+                    <th>Tratamiento</th>
+                    <th>Citas</th>
+                    <th>Paciente</th>
                		<th style="width:125px;">Acción</th>
             	</tr>
             </tfoot>
@@ -66,51 +70,65 @@
                     <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                     	<div class="form-group">
-							<label for="" class="col-sm-3">Nombre</label>
+							<label for="" class="col-sm-3">Fecha</label>
 							<div class="col-sm-9">
-								<input id="nombre" name="txtnombre" placeholder="Nombre" type="text" class="form-control">
+								<input id="fecha" name="txtfecha" placeholder="fecha" type="text" class="form-control">
 								<span class="help-block"></span>
 							</div>
 						</div>
 	                    <div class="form-group">
-								<label for="" class="col-sm-3">Ap.Paterno</label>
+								<label for="" class="col-sm-3">Sintomas y Signos</label>
 								<div class="col-sm-9">
-									<input id="appaterno" name="txtappaterno" placeholder="Apellido paterno"  type="text" class="form-control">
+									<input id="sintomas_signos" name="txtsintomas_signos" placeholder="Sintomas y Signos"  type="text" class="form-control">
 									<span class="help-block"></span>
 								</div>
 						</div>
 						<div class="form-group">
-								<label for="" class="col-sm-3">Ap.Materno</label>
+								<label for="" class="col-sm-3">Peso</label>
 								<div class="col-sm-9">
-									<input id="apmaterno" name="txtapmaterno" placeholder="Apellido materno" type="text" class="form-control"> 
+									<input id="peso" name="txtpeso" placeholder="Peso" type="text" class="form-control"> 
 									<span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="" class="col-sm-3">DNI</label>
+								<label for="" class="col-sm-3">Temperatura</label>
 								<div class="col-sm-9">
-									<input id="dni" name="txtdni" type="text"  placeholder="Dni" class="form-control">
+									<input id="temperatura" name="txttemperatura" type="text"  placeholder="Temperatura" class="form-control">
 									<span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="" class="col-sm-3">Telefono</label>
+								<label for="" class="col-sm-3">Vacunas</label>
 								<div class="col-sm-9">
-									<input id="celular" name="txtcelular" type="text" placeholder="Telefono" class="form-control">
+									<input id="vacunas" name="txtvacunas" type="text" placeholder="Vacunas" class="form-control">
 									<span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="" class="col-sm-3">Email</label>
+								<label for="" class="col-sm-3">Diagnostico</label>
 								<div class="col-sm-9">
-									<input id="email" name="txtemail" placeholder="Email" type="text" class="form-control">
+									<textarea  id="diagnostico" name="txtdiagnostico"  placeholder="Diagnostico"  type="text" class="form-control" rows="3"></textarea>
 									<span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="" class="col-sm-3">Password</label>
+								<label for="" class="col-sm-3">Tratamientos</label>
 								<div class="col-sm-9">
-									<input id="text" name="txtpassword" placeholder="Password" type="password" class="form-control">
+									<textarea  id="tratamientos" name="txttratamientos"  placeholder="Tratamientos"  type="text" class="form-control" rows="3"></textarea>
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="" class="col-sm-3">Citas</label>
+								<div class="col-sm-9">
+									<input id="citas" name="txtcitas" placeholder="Citas" type="text" class="form-control">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="" class="col-sm-3">Paciente</label>
+								<div class="col-sm-9">
+									<input id="paciente" name="txtpaciente" placeholder="Paciente" type="text" class="form-control">
 									<span class="help-block"></span>
 								</div>
 							</div>
@@ -135,7 +153,7 @@
 			<div class="modal-content">
 				<div class="modal-header " >
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Eliminacion de usuario</h4>
+					<h4 class="modal-title">Eliminacion de ficha clinica</h4>
 				</div>
 				<div class="modal-body">
 					Esta seguro de eliminar a <span id="nombre"></span> ?
