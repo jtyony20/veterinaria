@@ -40,9 +40,7 @@
                   <td><?php echo $ficha->id_paciente;?></td>
                   <td>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $ficha->id;?>">
-                        <span class="fa fa-eye"></span>
-                      </button>
+                      <a href="<?php echo base_url();?>chistoria/ver_historia/<?php echo $ficha->id; ?>" class="btn btn-info btn-view"><span class="fa fa-eye"></span></a>
                       <a href="<?php echo base_url();?>cficha/edit/<?php echo $ficha->id; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                       <a href="<?php echo base_url();?>cficha/edit/delete/<?php echo $ficha->id; ?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                     </div>

@@ -2,29 +2,6 @@
 //:::::::::::::::::::OBTENER TODOS LOS HISTORIAS:::::::::::::::::::
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-$("#tblHistorias tbody").html('');
-$.post(baseurl+'chistoria/getHistorias', function(data) {
-	var obj = JSON.parse(data);
-	$.each(obj, function(i, item) {
-		$("#tblHistorias tbody").append(
-			'<tr>'+
-			'<td>'+item.id_historia_clinica+'</td>'+
-			'<td>'+item.nombre+'</td>'+
-			'<td>'+
-			'<button class="btnVer btn btn-link" type="button" data-toggle="modal" data-target="#modalF" onclick="mostrarDatos(\''+item.id_paciente+'\',\''+item.nombre+'\',\''+item.especie+'\',\''+item.raza+'\',\''+item.edad+'\',\''+item.sexo+'\',\''+item.color+'\',\''+item.fecha_ingreso+'\',\''+item.id_cliente+'\');"><i class="fa fa-search"><i></button></td>'+
-			'</td>'+
-			'</tr>'
-			);
-	});
-
-	/*$("#tblHistorias").dataTable({
-		'paging':true,
-		'filter':true,
-		'info':true
-
-	});*/
-
-});
 
 
 

@@ -5,9 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Cclientes extends CI_Controller
 {
-    /**
-     * summary
-     */
+
     public function __construct()
     {
         parent::__construct();

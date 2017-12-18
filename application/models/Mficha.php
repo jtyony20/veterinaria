@@ -107,7 +107,16 @@ class Mficha extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete($this->table);
     }
-
+    public function get_historia_id($id){
+        $this->db->select("p.nombre as nombrep,p.especie as especie,p.raza as raza,p.edad as edad,c.codigo as codigo,c.nombre as nombrec,c.appaterno as apellido,c.direccion as direccion,f.fecha as fechaf,f.sintomas_signos as sintomas_signos,f.peso as peso,f.vacunas as vacunas,f.temperatura as temperatura,f.diagnostico as diagnostico,f.tratamiento as tratamiento,f.citas as citas");
+        $this->db->from('fichaclinica f');
+        $this->db->join('paciente p','p.id = f.id_paciente');
+        $this->db->join('cliente c','c.id = p.id_cliente');
+        $this->db->where('f.id', $id);
+        $r = $this->db->get();
+        return $r->row();
+       
+    }
 
 
 

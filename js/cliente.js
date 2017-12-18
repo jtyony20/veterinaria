@@ -57,7 +57,7 @@ function add_person()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Nuevo Cliente'); // Set Title to Bootstrap modal title
 }
 function ver_cliente(id){
     $.ajax({
@@ -87,7 +87,7 @@ function list_pacientes(id){
         type: 'GET',
         dataType: 'JSON',
         success:function(data){
-           
+           $('.modal-title').text('Listado de pacientes');
         if (data===null) {
                 html='<tr><td colspan="7">No existen registros...</td></tr>';
             }else {
@@ -104,6 +104,7 @@ function list_pacientes(id){
                
                 });     
             }
+
           $("#modal-tabla .modal-body tbody").html(html);
             }
         })

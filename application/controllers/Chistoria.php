@@ -5,16 +5,21 @@
 */
 class Chistoria extends CI_Controller
 {
-	
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m');
 		$this->load->model('mficha');
+        $this->load->model('mpacientes');
 	}
 	public function index(){
-
 	}
+    public function ver_historia($id=''){
+        $data = array('historias' =>$this->mficha->get_historia_id($id));
+        $this->load->view('layout/header');
+        $this->load->view('layout/menu');
+        $this->load->view('vhistoria',$data);
+        $this->load->view('layout/footer');
+    }
 	public function nuevo($id=''){
 		if (empty($id)) {
 			redirect(base_url().'cclientes/');
