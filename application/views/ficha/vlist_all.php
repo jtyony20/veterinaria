@@ -11,8 +11,7 @@
 
 
         <h3>Lista de atención</h3>
-        <br />
-        <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nueva Ficha Clinica</button>
+        <button class="btn btn-primary" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nueva Ficha Clinica</button>
       
         <br />
         <br />

@@ -25,6 +25,11 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
+ <?php 
+ if ($this->session->userdata('login')) {
+            redirect(base_url().'cusuarios/');
+        }
+  ?> 
 <div class="login-box">
   <div class="login-logo">
     <a href="../../index2.html"><b>Tutorial</b>CI</a>

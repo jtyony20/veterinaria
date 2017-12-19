@@ -10,11 +10,16 @@ class Cusuarios extends CI_Controller
      */
     public function __construct()
     {
+
         parent::__construct();
         $this->load->model('musuarios');
+        if (!$this->session->userdata('login')) {
+            redirect(base_url().'clogin/');
+        }
     }
 
     public function index(){
+        
         $this->load->view('layout/header');
         $this->load->view('layout/menu');
         $this->load->view('vusuarios');

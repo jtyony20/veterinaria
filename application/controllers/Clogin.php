@@ -10,6 +10,7 @@ class Clogin extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mlogin');
+		
 	}
 
 	public function index(){
@@ -32,6 +33,11 @@ class Clogin extends CI_Controller
 			$this->load->view('vlogin',$data);
 
 		}
+	}
+	public function salir(){
+		$this->session->sess_destroy();
+		$this->index();
+
 	}
 }
 

@@ -13,9 +13,9 @@
 
  
         <h3>Datos de los usuarios</h3>
-        <br />
-        <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nuevo Usario</button>
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recargar</button>
+        <button class="btn btn-primary" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Nuevo Usuario</button>
+        <!--
+        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recargar</button> -->
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">

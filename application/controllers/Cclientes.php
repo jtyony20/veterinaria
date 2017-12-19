@@ -8,8 +8,12 @@ class Cclientes extends CI_Controller
 
     public function __construct()
     {
+
         parent::__construct();
         $this->load->model('mclientes');
+         if (!$this->session->userdata('login')) {
+            redirect(base_url().'clogin/');
+        }
     }
 
     public function index(){

@@ -12,6 +12,9 @@ class Cpacientes extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mpacientes');
+         if (!$this->session->userdata('login')) {
+            redirect(base_url().'clogin/');
+        }
     }
 
     public function index(){

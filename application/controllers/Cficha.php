@@ -11,6 +11,9 @@ class Cficha extends CI_Controller
 		parent::__construct();
 		$this->load->model('mpacientes');
 		$this->load->model('mficha');
+         if (!$this->session->userdata('login')) {
+            redirect(base_url().'clogin/');
+        }
 	}
 	public function index(){
         $this->load->view('layout/header');
